@@ -4,6 +4,8 @@
 
 using namespace std;
 
+//Sistema que Cadastra e calcula o IMC dos Usuários
+
 struct Pessoas {
 	string nome;
 	int idade;
@@ -67,14 +69,21 @@ void ListaDePessoas(const vector<Pessoas>& pessoa) { //Passa o valor constante d
 		if (p.imc < 18.5) {
 			cout << p.nome <<": Abaixo do Peso." << endl;
 		}
-		if (p.imc > 18.6 and p.imc < 24.9) {
+		if (p.imc > 18.6 && p.imc < 24.99) {
 			cout << p.nome << ": Peso Ideal." << endl;
 		}
-		else if (p.imc > 25.0 and p.imc < 29.9) {
+		else if (p.imc > 25.0 && p.imc < 29.99) {
 			cout << p.nome <<": Levemente acima do peso." << endl;
 		}
-		else {
-			cout << p.nome << ": Obesidade." << endl;
+		else if(p.imc > 30.0 && p.imc < 34.99) {
+			cout << p.nome << ": Obesidade Grau I" << endl;
+		}
+		else if (p.imc > 35.5 && p.imc < 39.99) {
+			cout << p.nome << ": Obesidade Grau II (severa)" << endl;
+		}
+		else if (p.imc>=40.0){
+			cout << p.nome << ": Obesidade III (morbida)" << endl;
+
 		}
 	}
 }
@@ -104,16 +113,22 @@ void PesquisarNome(const vector<Pessoas>& pessoa) {
 			if (p.imc < 18.5) {
 				cout << "Abaixo do Peso." << endl;
 			}
-			if (p.imc > 18.6 and p.imc < 24.9) {
+			if (p.imc > 18.6 and p.imc < 24.99) {
 				cout << "Peso Ideal." << endl;
 			}
-			else if (p.imc > 25.0 and p.imc < 29.9) {
+			else if (p.imc > 25.0 and p.imc < 29.99) {
 				cout << "Levemente acima do peso." << endl;
 			}
-			else {
-				cout << "Obesidade." << endl;
+			else if (p.imc > 30.0 && p.imc < 34.99) {
+				cout << p.nome << ": Obesidade Grau I" << endl;
 			}
+			else if (p.imc > 35.5 && p.imc < 39.99) {
+				cout << p.nome << ": Obesidade Grau II (severa)" << endl;
+			}
+			else if (p.imc >=40.0){
+				cout << p.nome << ": Obesidade III (morbida)" << endl;
 
+			}
 			nome_encontrado = true;
 		}
 
